@@ -1,0 +1,7 @@
+{
+  "name": "MeAdote",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
