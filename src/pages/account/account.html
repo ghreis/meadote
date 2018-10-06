@@ -1,0 +1,34 @@
+<ion-header>
+	<ion-navbar color="secondary">
+		<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+		<ion-title>Sua Conta</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-list>
+		<ion-item-sliding>
+			<ion-item>
+				<ion-thumbnail item-start>
+					<img src="https://bit.ly/2QvdvHm">
+				</ion-thumbnail>
+				<h1>Filhotes de Beagle</h1>
+				<p>Telefone: 17 998877665</p>
+				<p>Cidade: São José do Rio Preto </p>
+        <button ion-button clear item-end color="secondary" (click)="editAd()">EDITAR</button>
+			</ion-item>
+			<ion-item-options side="left">
+				<button ion-button color="danger" (click)="clear(c)">
+      <ion-icon name="trash"></ion-icon>
+      Apagar
+    </button>
+			</ion-item-options>
+		</ion-item-sliding>
+	</ion-list>
+	<ion-fab right bottom>
+		<button ion-fab color="secondary" (click)="add()">
+    <ion-icon name="add"></ion-icon>
+  </button>
+	</ion-fab>
+</ion-content>

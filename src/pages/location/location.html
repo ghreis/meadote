@@ -1,0 +1,46 @@
+<ion-header>
+	<ion-navbar color="secondary">
+		<ion-title>Localização</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<div text-center padding>
+		<img width="180" height="180" src="https://bit.ly/2prQQPS">
+	</div>
+	<div text-center>
+		<p> Como você deseja ser localizado?</p>
+	</div>
+	<div>
+		<ion-item>
+			<ion-label>Automaticamente
+				<p>localidade do GPS</p>
+			</ion-label>
+			<ion-toggle checked="true"></ion-toggle>
+		</ion-item>
+	</div>
+	<div>
+    <!--
+		<ion-item>
+			<ion-label style="color: black;">Estado</ion-label>
+			<ion-select [(ngModel)]="estados">
+				<ion-option value="ES">Espirito Santo</ion-option>
+				<ion-option value="MG">Minas Gerais</ion-option>
+				<ion-option value="RJ">Rio de Janeiro</ion-option>
+				<ion-option value="SP" selected>São Paulo</ion-option>
+			</ion-select>
+		</ion-item>
+    -->
+		<ion-item>
+			<ion-label style="color: black;">Cidade</ion-label>
+			<ion-select [(ngModel)]="cidades">
+				<ion-option value="1">Jaci</ion-option>
+				<ion-option value="2">José Bonifácil</ion-option>
+				<ion-option value="3">Mirassol</ion-option>
+				<ion-option value="4" selected>São José do Rio Preto</ion-option>
+			</ion-select>
+		</ion-item>
+	</div>
+  <div padding>
+    <button ion-button block color="secondary" (click)="saveLocation()">SALVAR LOCALIZAÇÃO</button>
+  </div>
+</ion-content>

@@ -1,14 +1,99 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+	<ion-navbar color="secondary" hideBackButton="true">
+		<ion-buttons left>
+			<button ion-button icon-only (click)="changeLocation()">
+        <ion-icon name="pin"style="font-size: 35px;"></ion-icon>
+      </button>
+		</ion-buttons>
+		<ion-buttons right>
+			<button ion-button icon-only (click)="logar()">
+        <ion-icon name="contact" style="font-size: 40px;"></ion-icon>
+      </button>
+		</ion-buttons>
+		<ion-title text-center>Me Adote!</ion-title>
+	</ion-navbar>
+	<ion-toolbar>
+		<ion-segment [(ngModel)]="pets" color="secondary">
+			<ion-segment-button value="cachorros">
+				<img src="https://bit.ly/2QvdvHm" height="40" width="50">
+			</ion-segment-button>
+			<ion-segment-button value="gatos">
+				<img src="https://bit.ly/2QuGhbb" height="40" width="50">
+			</ion-segment-button>
+		</ion-segment>
+	</ion-toolbar>
 </ion-header>
+<ion-content>
+	<div [ngSwitch]="pets">
+		<ion-list *ngSwitchCase="'cachorros'">
+			<ion-item (click)="viewAd()">
+				<ion-thumbnail item-start>
+					<img src="https://bit.ly/2QvdvHm">
+				</ion-thumbnail>
+				<h1>Filhotes de Beagle</h1>
+				<p><b>Telefone:</b> 17 998877665</p>
+				<p><b>Cidade:</b> São José do Rio Preto </p>
+			</ion-item>
+			<ion-item>
+				<ion-thumbnail item-start>
+					<img src="https://bit.ly/2QvdvHm">
+				</ion-thumbnail>
+				<h1>Filhotes de Labrador</h1>
+				<p><b>Telefone:</b> </p>
+				<p><b>Cidade:</b> </p>
+			</ion-item>
+			<ion-item>
+				<ion-thumbnail item-start>
+					<img src="https://bit.ly/2QvdvHm">
+				</ion-thumbnail>
+				<h1>Filhotes de Pintcher</h1>
+				<p><b>Telefone:</b> </p>
+				<p><b>Cidade:</b> </p>
+			</ion-item>
+			<ion-item>
+				<ion-thumbnail item-start>
+					<img src="https://bit.ly/2QvdvHm">
+				</ion-thumbnail>
+				<h1>Filhotes de Vira-Lata</h1>
+				<p><b>Telefone:</b> </p>
+				<p><b>Cidade:</b> </p>
+			</ion-item>
+		</ion-list>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+		<ion-list *ngSwitchCase="'gatos'">
+			<ion-item>
+				<ion-thumbnail item-start>
+					<img src="https://bit.ly/2QuGhbb">
+				</ion-thumbnail>
+				<h1>Filhotes de Persa</h1>
+				<p><b>Telefone:</b> </p>
+				<p><b>Cidade:</b> </p>
+			</ion-item>
+			<ion-item>
+				<ion-thumbnail item-start>
+					<img src="https://bit.ly/2QuGhbb">
+				</ion-thumbnail>
+				<h1>Filhotes de Siamês</h1>
+				<p><b>Telefone:</b> </p>
+				<p><b>Cidade:</b> </p>
+			</ion-item>
+			<ion-item>
+				<ion-thumbnail item-start>
+					<img src="https://bit.ly/2QuGhbb">
+				</ion-thumbnail>
+				<h1>Filhotes de Angorá</h1>
+				<p><b>Telefone:</b> </p>
+				<p><b>Cidade:</b> </p>
+			</ion-item>
+			<ion-item>
+				<ion-thumbnail item-start>
+					<img src="https://bit.ly/2QuGhbb">
+				</ion-thumbnail>
+				<h1>Filhotes de Vira-Lata</h1>
+				<p><b>Telefone:</b> </p>
+				<p><b>Cidade:</b> </p>
+			</ion-item>
+
+		</ion-list>
+	</div>
 </ion-content>

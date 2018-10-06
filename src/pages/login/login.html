@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div text-center>
+    <img width="180" height="180" src="https://bit.ly/2xDc6WT">
+  </div>
+  <form #form="ngForm" (submit)="entrar(form)">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="email" name="email" ngModel></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>Senha</ion-label>
+        <ion-input type="password" name="senha" ngModel></ion-input>
+      </ion-item>
+    </ion-list>
+    <p text-right ion-text color="secondary" tappable (click)="forgotPass()">
+      <strong>Esqueceu sua Senha?</strong>
+    </p>
+    <button ion-button block color="secondary">ENTRAR</button>
+  </form>
+  <div padding>
+    <button ion-button block color="secondary" clear (click)="goRegister()">CADASTRAR-SE</button>
+    <!--<button ion-button block color="secondary" clear>RECUPERAR SENHA</button> -->
+  </div>
+</ion-content>
