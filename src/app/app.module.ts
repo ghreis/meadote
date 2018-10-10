@@ -19,6 +19,7 @@ import { ViewAdPage } from '../pages/view-ad/view-ad';
 import { FormsModule } from '@angular/forms'
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore'
 
 const config = {
   apiKey: "AIzaSyAhB9BNpQzdKPj1PeWuJ2pWrW-jmF50buQ",
@@ -49,7 +50,8 @@ const config = {
     FormsModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

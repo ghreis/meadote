@@ -9,13 +9,13 @@
 <ion-content>
 	<ion-list>
 		<ion-item-sliding>
-			<ion-item>
+			<ion-item *ngFor='let ad of anuncios | async'>
 				<ion-thumbnail item-start>
 					<img src="https://bit.ly/2QvdvHm">
 				</ion-thumbnail>
-				<h1>Filhotes de Beagle</h1>
-				<p>Telefone: 17 998877665</p>
-				<p>Cidade: São José do Rio Preto </p>
+				<h1>{{ad.titulo}}</h1>
+				<p>Telefone: {{ad.telefone}}</p>
+				<p>Cidade: {{ad.cidade}} </p>
         <button ion-button clear item-end color="secondary" (click)="editAd()">EDITAR</button>
 			</ion-item>
 			<ion-item-options side="left">
