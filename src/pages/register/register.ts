@@ -27,7 +27,7 @@ export class RegisterPage {
     .catch((error)=>{
       alert(error)
     })
-    //this.navCtrl.pop()
+    this.navCtrl.pop()
   }
 
   ionViewDidLoad() {

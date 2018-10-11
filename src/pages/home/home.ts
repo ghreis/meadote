@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 import { LocationPage } from '../location/location';
 import { LoginPage } from '../login/login';
@@ -15,7 +17,12 @@ export class HomePage {
 
   pets : string = "cachorros"
 
-  constructor(public navCtrl: NavController, public afAuth: AngularFireAuth) {
+  public anunciosCachorros : Observable<any[]>
+  public anunciosGatos : Observable<any[]>
+
+  constructor(public navCtrl: NavController, public afAuth: AngularFireAuth, public db: AngularFirestore) {
+    this.anunciosCachorros = db.collection('anuncios', ref => ref.where('animal', '==', "Cachorro")).valueChanges()
+    this.anunciosGatos = db.collection('anuncios', ref => ref.where('animal', '==', "Gato")).valueChanges()
   }
 
   public logar(): void{

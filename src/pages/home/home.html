@@ -26,74 +26,24 @@
 <ion-content>
 	<div [ngSwitch]="pets">
 		<ion-list *ngSwitchCase="'cachorros'">
-			<ion-item (click)="viewAd()">
+			<ion-item *ngFor='let adDog of anunciosCachorros | async'>
 				<ion-thumbnail item-start>
 					<img src="https://bit.ly/2QvdvHm">
 				</ion-thumbnail>
-				<h1>Filhotes de Beagle</h1>
-				<p><b>Telefone:</b> 17 998877665</p>
-				<p><b>Cidade:</b> São José do Rio Preto </p>
-			</ion-item>
-			<ion-item>
-				<ion-thumbnail item-start>
-					<img src="https://bit.ly/2QvdvHm">
-				</ion-thumbnail>
-				<h1>Filhotes de Labrador</h1>
-				<p><b>Telefone:</b> </p>
-				<p><b>Cidade:</b> </p>
-			</ion-item>
-			<ion-item>
-				<ion-thumbnail item-start>
-					<img src="https://bit.ly/2QvdvHm">
-				</ion-thumbnail>
-				<h1>Filhotes de Pintcher</h1>
-				<p><b>Telefone:</b> </p>
-				<p><b>Cidade:</b> </p>
-			</ion-item>
-			<ion-item>
-				<ion-thumbnail item-start>
-					<img src="https://bit.ly/2QvdvHm">
-				</ion-thumbnail>
-				<h1>Filhotes de Vira-Lata</h1>
-				<p><b>Telefone:</b> </p>
-				<p><b>Cidade:</b> </p>
+				<h1>{{adDog.titulo}}</h1>
+				<p><b>Telefone:</b>{{adDog.telefone}}</p>
+				<p><b>Cidade:</b>{{adDog.cidade}}</p>
 			</ion-item>
 		</ion-list>
-
 		<ion-list *ngSwitchCase="'gatos'">
-			<ion-item>
+			<ion-item *ngFor='let adCat of anunciosGatos | async'>
 				<ion-thumbnail item-start>
 					<img src="https://bit.ly/2QuGhbb">
 				</ion-thumbnail>
-				<h1>Filhotes de Persa</h1>
-				<p><b>Telefone:</b> </p>
-				<p><b>Cidade:</b> </p>
+				<h1>{{adCat.titulo}}</h1>
+				<p><b>Telefone:</b>{{adCat.telefone}}</p>
+				<p><b>Cidade:</b>{{adCat.cidade}}</p>
 			</ion-item>
-			<ion-item>
-				<ion-thumbnail item-start>
-					<img src="https://bit.ly/2QuGhbb">
-				</ion-thumbnail>
-				<h1>Filhotes de Siamês</h1>
-				<p><b>Telefone:</b> </p>
-				<p><b>Cidade:</b> </p>
-			</ion-item>
-			<ion-item>
-				<ion-thumbnail item-start>
-					<img src="https://bit.ly/2QuGhbb">
-				</ion-thumbnail>
-				<h1>Filhotes de Angorá</h1>
-				<p><b>Telefone:</b> </p>
-				<p><b>Cidade:</b> </p>
-			</ion-item>
-			<ion-item>
-				<ion-thumbnail item-start>
-					<img src="https://bit.ly/2QuGhbb">
-				</ion-thumbnail>
-				<h1>Filhotes de Vira-Lata</h1>
-				<p><b>Telefone:</b> </p>
-				<p><b>Cidade:</b> </p>
-			</ion-item>
-
 		</ion-list>
 	</div>
 </ion-content>

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
-
 import { AngularFirestore } from '@angular/fire/firestore'
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @IonicPage()
 @Component({
@@ -14,7 +14,7 @@ export class AddAdPage {
 
   private todo: FormGroup
 
-  constructor(public db: AngularFirestore, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
+  constructor(public db: AngularFirestore, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, public afAuth: AngularFireAuth) {
 
     this.todo = this.formBuilder.group({
       titulo: [''],
@@ -30,8 +30,10 @@ export class AddAdPage {
   }
 
   public addAd(): void{
+
+    let user = this.afAuth.auth.currentUser
     let anuncio = {
-      uid: "83YOzY9wBqXtHv0rFqMrWgt56qE3",
+      uid: user.uid,
       titulo: this.todo.value['titulo'],
       animal: this.todo.value['animal'],
       sexo: this.todo.value['sexo'],

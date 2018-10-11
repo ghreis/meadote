@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AddAdPage } from '../add-ad/add-ad'
 import { EditAdPage } from '../edit-ad/edit-ad'
 
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore'
 import { Observable } from 'rxjs'
 
@@ -17,9 +18,11 @@ export class AccountPage {
 
   public anuncios : Observable<any[]>
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFirestore) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFirestore, public afAuth: AngularFireAuth) {
 
-    this.anuncios = db.collection('anuncios', ref => ref.where('uid', '==', "83YOzY9wBqXtHv0rFqMrWgt56qE3")).valueChanges()
+    let user = this.afAuth.auth.currentUser
+
+    this.anuncios = db.collection('anuncios', ref => ref.where('uid', '==', user.uid)).valueChanges()
 
   }
 
@@ -27,8 +30,12 @@ export class AccountPage {
     this.navCtrl.push(AddAdPage)
   }
 
-  public editAd(): void {
-    this.navCtrl.push(EditAdPage)
+  public editAd(ad: any): void {
+    this.navCtrl.push(EditAdPage, {ad : ad})
+  }
+
+  public apagar(idAd: string): void{
+    this.db.collection('anuncios').doc(idAd).delete()
   }
 
   ionViewDidLoad() {

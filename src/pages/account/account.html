@@ -8,18 +8,18 @@
 </ion-header>
 <ion-content>
 	<ion-list>
-		<ion-item-sliding>
-			<ion-item *ngFor='let ad of anuncios | async'>
+		<ion-item-sliding *ngFor='let ad of anuncios | async'>
+			<ion-item>
 				<ion-thumbnail item-start>
 					<img src="https://bit.ly/2QvdvHm">
 				</ion-thumbnail>
 				<h1>{{ad.titulo}}</h1>
 				<p>Telefone: {{ad.telefone}}</p>
 				<p>Cidade: {{ad.cidade}} </p>
-        <button ion-button clear item-end color="secondary" (click)="editAd()">EDITAR</button>
+        <button ion-button clear item-end color="secondary" (click)="editAd(ad)">EDITAR</button>
 			</ion-item>
 			<ion-item-options side="left">
-				<button ion-button color="danger" (click)="clear(c)">
+				<button ion-button color="danger" (click)="apagar(ad.idAd)">
       <ion-icon name="trash"></ion-icon>
       Apagar
     </button>
