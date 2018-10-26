@@ -6,7 +6,6 @@ import { AlertController } from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth'
 
 import { HomePage } from '../pages/home/home';
-import { AccountPage } from '../pages/account/account';
 import { ChangePasswordPage } from '../pages/change-password/change-password';
 
 export interface MenuItem {

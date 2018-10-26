@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { NgForm } from '@angular/forms';
-import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { NavController, NavParams } from 'ionic-angular';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { AngularFirestore } from '@angular/fire/firestore'
-import { Observable } from 'rxjs'
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-edit-ad',
   templateUrl: 'edit-ad.html',

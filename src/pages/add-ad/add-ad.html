@@ -5,10 +5,10 @@
 </ion-header>
 <ion-content padding>
 	<div text-center>
-		<img width="180" height="150" src="https://bit.ly/2xzE0DD">
+		<img width="180" height="150" src="{{ myPhoto }}">
 	</div>
 	<div text-center>
-		<button ion-button small color="secondary">
+		<button ion-button small color="secondary" (click)="pictureFromGalery()">
 			Adicionar Foto
 		</button>
 	</div>
@@ -56,7 +56,7 @@
 				<ion-label stacked>Cidade</ion-label>
 				<ion-select formControlName="cidade">
 					<ion-option>Jaci</ion-option>
-					<ion-option>José Bonifácil</ion-option>
+					<ion-option>José Bonifácio</ion-option>
 					<ion-option>Mirassol</ion-option>
 					<ion-option>São José do Rio Preto</ion-option>
 				</ion-select>

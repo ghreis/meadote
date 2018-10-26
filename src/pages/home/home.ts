@@ -47,9 +47,9 @@ export class HomePage {
     this.navCtrl.push(LocationPage)
   }
 
-  public viewAd(): void{
-    this.navCtrl.push(ViewAdPage)
+  public viewAd(ad: any): void{
+    this.navCtrl.push(ViewAdPage, {ad : ad})
+    console.log(ad.idAd)
   }
-
 
 }

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth'
 import { AlertController } from 'ionic-angular';
 
 import { AccountPage } from '../account/account'
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-change-password',
   templateUrl: 'change-password.html',

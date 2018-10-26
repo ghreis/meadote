@@ -11,7 +11,7 @@
 		<ion-item-sliding *ngFor='let ad of anuncios | async'>
 			<ion-item>
 				<ion-thumbnail item-start>
-					<img src="https://bit.ly/2QvdvHm">
+					<img src="{{ad.urlPhoto}}">
 				</ion-thumbnail>
 				<h1>{{ad.titulo}}</h1>
 				<p>Telefone: {{ad.telefone}}</p>

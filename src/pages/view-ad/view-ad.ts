@@ -1,15 +1,24 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 
-@IonicPage()
 @Component({
   selector: 'page-view-ad',
   templateUrl: 'view-ad.html',
 })
 export class ViewAdPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public ad: any;
+
+  public anuncio : Observable<any>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFirestore) {
+
+    this.ad = this.navParams.data.ad || {}
+
+    this.anuncio = db.collection('anuncios', ref => ref.where('idAd', '==', this.ad.idAd)).valueChanges()
   }
 
   ionViewDidLoad() {
