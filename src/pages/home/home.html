@@ -23,11 +23,11 @@
 		</ion-segment>
 	</ion-toolbar>
 </ion-header>
-<ion-content>
-	<div [ngSwitch]="pets">
+<ion-content style="background-color: #e6ffe6">
+	<div [ngSwitch]="pets" style="background-color: #e6ffe6">
 		<ion-list *ngSwitchCase="'cachorros'">
-			<ion-item *ngFor='let adDog of anunciosCachorros | async' (click)="viewAd(adDog)">
-				<ion-card>
+			<ion-item *ngFor='let adDog of anunciosCachorros | async' (click)="viewAd(adDog)" style="background-color: #e6ffe6">
+				<ion-card >
 					<img src={{adDog.urlPhoto}} />
 					<ion-card-content>
 						<ion-card-title>
@@ -44,7 +44,7 @@
 			</ion-item>
 		</ion-list>
 		<ion-list *ngSwitchCase="'gatos'">
-			<ion-item *ngFor='let adCat of anunciosGatos | async' (click)="viewAd(adCat)">
+			<ion-item *ngFor='let adCat of anunciosGatos | async' (click)="viewAd(adCat)" style="background-color: #e6ffe6">
 					<ion-card>
 						<img src={{adCat.urlPhoto}} />
 							<ion-card-content>

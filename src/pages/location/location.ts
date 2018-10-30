@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { LocationServiceProvider } from '../../providers/location-service/location-service';
+import { HomePage } from '../home/home'
 
 
 
@@ -10,11 +14,39 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class LocationPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public obj: any;
+  public localidades: any;
+  public cidades: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public locationService : LocationServiceProvider, public http: HttpClient) {
+    this.getAllLocations();
+
+    this.cidades = this.locationService.location
   }
 
   saveLocation():void {
-    this.navCtrl.pop()
+    this.locationService.location = this.cidades
+    console.log(this.locationService.location)
+    this.navCtrl.setRoot(HomePage)
+  }
+
+  cleanLocation(){
+    this.locationService.location = "Escolha uma cidade"
+    console.log(this.locationService.location)
+    this.navCtrl.setRoot(HomePage)
+  }
+
+  getCity(){
+    this.locationService.location = this.cidades
+    console.log(this.locationService.location)
+  }
+
+  getAllLocations() {
+    let data: Observable<any>
+    data = this.http.get(`http://servicodados.ibge.gov.br/api/v1/localidades/microrregioes/35004/municipios`)
+    data.subscribe(result =>{
+      this.localidades = result
+    });
   }
 
   ionViewDidLoad() {

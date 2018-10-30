@@ -9,6 +9,8 @@ import { LoginPage } from '../login/login';
 import { ViewAdPage } from '../view-ad/view-ad';
 import { AccountPage } from '../account/account'
 
+import { LocationServiceProvider } from '../../providers/location-service/location-service';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -20,9 +22,17 @@ export class HomePage {
   public anunciosCachorros : Observable<any[]>
   public anunciosGatos : Observable<any[]>
 
-  constructor(public navCtrl: NavController, public afAuth: AngularFireAuth, public db: AngularFirestore) {
-    this.anunciosCachorros = db.collection('anuncios', ref => ref.where('animal', '==', "Cachorro")).valueChanges()
-    this.anunciosGatos = db.collection('anuncios', ref => ref.where('animal', '==', "Gato")).valueChanges()
+  constructor(public navCtrl: NavController, public afAuth: AngularFireAuth, public db: AngularFirestore, public locationService : LocationServiceProvider) {
+    
+    if(this.locationService.location == "Escolha uma cidade"){
+      this.anunciosCachorros = db.collection('anuncios', ref => ref.where('animal', '==', "Cachorro")).valueChanges()
+      this.anunciosGatos = db.collection('anuncios', ref => ref.where('animal', '==', "Gato")).valueChanges()
+    }
+    else{
+      console.log("entrou")
+      this.anunciosCachorros = db.collection('anuncios', ref => ref.where('animal', '==', "Cachorro").where('cidade', '==', this.locationService.location)).valueChanges()
+      this.anunciosGatos = db.collection('anuncios', ref => ref.where('animal', '==', "Gato").where('cidade', '==', this.locationService.location)).valueChanges()
+    }
   }
 
   public logar(): void{
@@ -44,7 +54,7 @@ export class HomePage {
   }
 
   public changeLocation(): void{
-    this.navCtrl.push(LocationPage)
+    this.navCtrl.setRoot(LocationPage)
   }
 
   public viewAd(ad: any): void{

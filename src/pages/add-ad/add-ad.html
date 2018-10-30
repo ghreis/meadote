@@ -1,11 +1,16 @@
 <ion-header>
 	<ion-navbar color="secondary">
+		<ion-buttons left>
+			<button ion-button icon-only (click)="return()">
+				<ion-icon name="arrow-round-back" style="font-size: 35px;"></ion-icon>
+			</button>
+		</ion-buttons>
 		<ion-title>Adicionar Anúnio</ion-title>
 	</ion-navbar>
 </ion-header>
 <ion-content padding>
 	<div text-center>
-		<img width="180" height="150" src="{{ myPhoto }}">
+		<img src="{{ myPhoto }}">
 	</div>
 	<div text-center>
 		<button ion-button small color="secondary" (click)="pictureFromGalery()">
@@ -55,10 +60,7 @@
 			<ion-item>
 				<ion-label stacked>Cidade</ion-label>
 				<ion-select formControlName="cidade">
-					<ion-option>Jaci</ion-option>
-					<ion-option>José Bonifácio</ion-option>
-					<ion-option>Mirassol</ion-option>
-					<ion-option>São José do Rio Preto</ion-option>
+					<ion-option *ngFor="let loc of localidades">{{loc.nome}}</ion-option>
 				</ion-select>
 			</ion-item>
 			<ion-item>

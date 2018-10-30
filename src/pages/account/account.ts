@@ -6,6 +6,7 @@ import { EditAdPage } from '../edit-ad/edit-ad'
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore'
+import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs'
 
 
@@ -17,7 +18,7 @@ export class AccountPage {
 
   public anuncios : Observable<any[]>
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFirestore, public afAuth: AngularFireAuth) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFirestore, public afAuth: AngularFireAuth, private storage: AngularFireStorage) {
 
     let user = this.afAuth.auth.currentUser
 
@@ -26,15 +27,16 @@ export class AccountPage {
   }
 
   public add(): void {
-    this.navCtrl.push(AddAdPage)
+    this.navCtrl.setRoot(AddAdPage)
   }
 
   public editAd(ad: any): void {
-    this.navCtrl.push(EditAdPage, {ad : ad})
+    this.navCtrl.setRoot(EditAdPage, {ad : ad})
   }
 
-  public apagar(idAd: string): void{
-    this.db.collection('anuncios').doc(idAd).delete()
+  public apagar(idAd: string, namePhoto: string): void{
+    this.storage.ref(namePhoto).delete();
+    this.db.collection('anuncios').doc(idAd).delete();
   }
 
   ionViewDidLoad() {
