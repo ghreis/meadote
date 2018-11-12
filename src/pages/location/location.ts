@@ -18,33 +18,34 @@ export class LocationPage {
   public localidades: any;
   public cidades: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public locationService : LocationServiceProvider, public http: HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public locationService: LocationServiceProvider, public http: HttpClient) {
     this.getAllLocations();
 
     this.cidades = this.locationService.location
   }
 
-  saveLocation():void {
+  saveLocation(): void {
     this.locationService.location = this.cidades
-    console.log(this.locationService.location)
     this.navCtrl.setRoot(HomePage)
   }
 
-  cleanLocation(){
+  cleanLocation() {
     this.locationService.location = "Escolha uma cidade"
-    console.log(this.locationService.location)
     this.navCtrl.setRoot(HomePage)
   }
 
-  getCity(){
+  return() {
+    this.navCtrl.setRoot(HomePage)
+  }
+
+  getCity() {
     this.locationService.location = this.cidades
-    console.log(this.locationService.location)
   }
 
   getAllLocations() {
     let data: Observable<any>
     data = this.http.get(`http://servicodados.ibge.gov.br/api/v1/localidades/microrregioes/35004/municipios`)
-    data.subscribe(result =>{
+    data.subscribe(result => {
       this.localidades = result
     });
   }

@@ -26,12 +26,12 @@ import { Camera } from '@ionic-native/camera';
 import { LocationServiceProvider } from '../providers/location-service/location-service';
 
 const config = {
-  apiKey: "AIzaSyAhB9BNpQzdKPj1PeWuJ2pWrW-jmF50buQ",
-  authDomain: "meadote-96eb7.firebaseapp.com",
-  databaseURL: "https://meadote-96eb7.firebaseio.com",
-  projectId: "meadote-96eb7",
-  storageBucket: "meadote-96eb7.appspot.com",
-  messagingSenderId: "314934113649"
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: ""
 };
 
 

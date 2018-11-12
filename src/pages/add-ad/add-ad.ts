@@ -127,8 +127,14 @@ export class AddAdPage {
   }
 
   return() {
-    this.storage.ref(this.namePhoto).delete()
-    this.navCtrl.setRoot(AccountPage)
+    if (this.namePhoto === "semFoto.png") {
+      this.navCtrl.setRoot(AccountPage)
+    }
+    else {
+      this.storage.ref(this.namePhoto).delete()
+      this.navCtrl.setRoot(AccountPage)
+    }
+
   }
 
   presentAlertPhoto() {

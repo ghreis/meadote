@@ -3,33 +3,39 @@
 	</ion-navbar>
 </ion-header>
 <ion-content>
-	<ion-item *ngFor='let ad of anuncio | async'>
+	<ion-item *ngFor='let ad of anuncio | async' style="background-color: #e6ffe6">
 		<ion-card>
 			<img src={{ad.urlPhoto}} />
 			<ion-card-content>
-				<ion-card-title>
+				<ion-card-title text-center>
 					{{ad.titulo}}
 				</ion-card-title>
 				<ion-item text-wrap>
-					<b>Quantidade: </b>{{ad.quantidade}}
+					<b>Detalhes do Anúncio</b>
 				</ion-item>
 				<ion-item text-wrap>
-					<b>Raça: </b>{{ad.raca}}
+					Raça: {{ad.raca}}
 				</ion-item>
 				<ion-item text-wrap>
-					<b>Sexo: </b>{{ad.sexo}}
+					Quantidade: {{ad.quantidade}}
 				</ion-item>
 				<ion-item text-wrap>
-					<b>Anunciante: </b>{{ad.anunciante}}
+					Sexo: {{ad.sexo}}
+				</ion-item>
+				<ion-item text-wrap text-justify style="border-bottom: 1px solid #89ce89">
+					Descrição: {{ad.descricao}}
 				</ion-item>
 				<ion-item text-wrap>
-					<b>Telefone: </b>{{ad.telefone}}
+					<b>Dados do Anunciante</b>
 				</ion-item>
 				<ion-item text-wrap>
-					<b>Cidade: </b>{{ad.cidade}}
+					Nome: {{ad.anunciante}}
 				</ion-item>
 				<ion-item text-wrap>
-					<b>Descrição: </b>{{ad.descricao}}
+					Telefone: {{ad.telefone}}
+				</ion-item>
+				<ion-item text-wrap>
+					Cidade: {{ad.cidade}}
 				</ion-item>
 			</ion-card-content>
 		</ion-card>

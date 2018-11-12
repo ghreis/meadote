@@ -1,11 +1,16 @@
 <ion-header>
 	<ion-navbar color="secondary">
+		<ion-buttons left>
+			<button ion-button icon-only (click)="return()">
+				<ion-icon name="arrow-round-back" style="font-size: 35px;"></ion-icon>
+			</button>
+		</ion-buttons>
 		<ion-title>Localização</ion-title>
 	</ion-navbar>
 </ion-header>
 <ion-content>
 	<div text-center padding>
-		<img width="180" height="180" src="https://bit.ly/2prQQPS">
+		<img width="180" height="180" src="https://bit.ly/2OgBVCn">
 	</div>
 	<div text-center>
 		<p> Onde você se localiza?</p>
@@ -29,8 +34,8 @@
 			</ion-select>
 		</ion-item>
 	</div>
-  <div padding>
-	<button ion-button block color="secondary" (click)="saveLocation()">SALVAR LOCALIZAÇÃO</button>
-	<button ion-button block color="secondary" (click)="cleanLocation()">LIMPAR LOCALIZAÇÃO</button>
-  </div>
+	<div padding>
+		<button ion-button block color="secondary" (click)="saveLocation()">SALVAR LOCALIZAÇÃO</button>
+		<button ion-button block color="secondary" (click)="cleanLocation()">LIMPAR LOCALIZAÇÃO</button>
+	</div>
 </ion-content>

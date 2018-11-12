@@ -61,6 +61,7 @@ export class MyApp {
           handler: () => {
             let user = this.afAuth.auth.currentUser
             user.delete()
+            this.afAuth.auth.signOut()
             this.nav.setRoot(HomePage)
           }
         }
